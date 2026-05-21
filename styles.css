@@ -1148,8 +1148,8 @@ h1.split-text {
     align-self: start;
     justify-self: stretch;
     width: 100%;
-    direction: ltr;
-    text-align: left;
+    direction: rtl;
+    text-align: right;
   }
 
   h1 {
@@ -1190,6 +1190,7 @@ h1.split-text {
     min-height: 96px;
     margin-top: 26px;
     direction: ltr;
+    justify-self: stretch;
   }
 
   .hero-card__dial {
@@ -1204,7 +1205,7 @@ h1.split-text {
   .hero-card small {
     grid-column: 1;
     direction: rtl;
-    text-align: left;
+    text-align: right;
   }
 
   .hero__actions,
