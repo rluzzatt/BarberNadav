@@ -817,30 +817,52 @@ h3 {
   animation: galleryDrift 13s ease-in-out infinite alternate;
 }
 
-.gallery-strip span {
-  display: grid;
-  place-items: end end;
+.gallery-card {
+  position: relative;
   aspect-ratio: 1.15;
-  padding: 18px;
+  margin: 0;
   overflow: hidden;
   border: 1px solid rgba(246, 240, 232, 0.12);
-  color: rgba(246, 240, 232, 0.78);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
   background:
     radial-gradient(circle at 30% 20%, rgba(215, 167, 85, 0.28), transparent 28%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
   border-radius: 8px;
 }
 
-.gallery-strip span:nth-child(2n) {
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06) brightness(0.84);
+  transition: transform 700ms var(--ease), filter 700ms var(--ease);
+}
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(14, 13, 12, 0.72)),
+    linear-gradient(90deg, rgba(14, 13, 12, 0.18), transparent);
+}
+
+.gallery-card figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 1;
+  color: rgba(246, 240, 232, 0.9);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+}
+
+.gallery-card:nth-child(2n) {
   transform: translateY(30px);
 }
 
-.gallery-strip span:nth-child(3n) {
-  background:
-    radial-gradient(circle at 70% 20%, rgba(192, 71, 50, 0.2), transparent 30%),
-    linear-gradient(145deg, rgba(147, 163, 165, 0.12), rgba(255, 255, 255, 0.02));
+.gallery-card:hover img {
+  transform: scale(1.06);
+  filter: saturate(0.96) contrast(1.08) brightness(0.94);
 }
 
 .visit {
@@ -1237,6 +1259,41 @@ h1.split-text {
   .footer {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .motion-gallery {
+    padding-block: 36px;
+  }
+
+  .gallery-strip {
+    display: flex;
+    gap: 12px;
+    min-width: 0;
+    margin-inline: -18px;
+    padding-inline: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    animation: none;
+  }
+
+  .gallery-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-card {
+    flex: 0 0 78vw;
+    aspect-ratio: 0.78;
+    scroll-snap-align: center;
+  }
+
+  .gallery-card:nth-child(2n) {
+    transform: none;
+  }
+
+  .gallery-card figcaption {
+    right: 14px;
+    bottom: 14px;
+    font-size: 1.3rem;
   }
 
   .button {
