@@ -1267,8 +1267,8 @@ h1.split-text {
 
   .gallery-strip {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     min-width: 0;
     margin-inline: 0;
     padding-inline: 0;
@@ -1278,7 +1278,7 @@ h1.split-text {
 
   .gallery-card {
     width: 100%;
-    aspect-ratio: 0.9;
+    aspect-ratio: 0.82;
   }
 
   .gallery-card:nth-child(2n) {
@@ -1286,9 +1286,9 @@ h1.split-text {
   }
 
   .gallery-card figcaption {
-    right: 14px;
-    bottom: 14px;
-    font-size: 1.3rem;
+    right: 10px;
+    bottom: 10px;
+    font-size: 1rem;
   }
 
   .button {

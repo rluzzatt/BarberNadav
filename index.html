@@ -8,8 +8,17 @@
       content="נדב פרץ - תספורות גברים, פיידים ועיצוב זקן. קביעת תור בצורה פשוטה ומהירה."
     />
     <title>נדב פרץ</title>
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+
+      if (window.location.hash === "#booking") {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    </script>
     <link rel="preload" href="assets/nadav-background.jpg" as="image" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260521-gallery-grid" />
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
@@ -260,6 +269,6 @@
       <a href="#top">חזרה למעלה</a>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260521-scroll-top"></script>
   </body>
 </html>

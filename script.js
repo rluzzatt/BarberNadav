@@ -1,6 +1,23 @@
 const body = document.body;
 body.classList.add("is-loading");
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+function focusTopOnPageLoad() {
+  if (window.location.hash === "#booking") {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+
+  window.scrollTo(0, 0);
+  window.setTimeout(() => window.scrollTo(0, 0), 0);
+}
+
+window.addEventListener("pageshow", focusTopOnPageLoad);
+window.addEventListener("load", focusTopOnPageLoad);
+window.addEventListener("DOMContentLoaded", focusTopOnPageLoad);
+
 const loader = document.querySelector(".loader");
 window.addEventListener("load", () => {
   window.setTimeout(() => {
