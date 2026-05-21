@@ -1139,9 +1139,34 @@ h1.split-text {
 
   .hero {
     min-height: auto;
+    padding-top: 320px;
     padding-inline: 18px;
     padding-bottom: 120px;
     align-content: start;
+  }
+
+  .hero__media {
+    inset: 96px 0 auto;
+    height: 210px;
+    transform: none;
+    animation: none;
+  }
+
+  .hero__media img {
+    object-fit: contain;
+    object-position: center;
+    filter: grayscale(1) saturate(0.9) contrast(1.08) brightness(0.96);
+  }
+
+  .hero__media::after {
+    background:
+      linear-gradient(180deg, rgba(14, 13, 12, 0) 0%, rgba(14, 13, 12, 0.2) 58%, rgba(14, 13, 12, 0.88) 100%),
+      linear-gradient(90deg, rgba(14, 13, 12, 0.42), transparent 22%, transparent 78%, rgba(14, 13, 12, 0.42));
+  }
+
+  .hero__scan,
+  .hero__edge {
+    display: none;
   }
 
   .hero__content {
