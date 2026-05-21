@@ -1266,24 +1266,19 @@ h1.split-text {
   }
 
   .gallery-strip {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
     min-width: 0;
-    margin-inline: -18px;
-    padding-inline: 18px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
     animation: none;
   }
 
-  .gallery-strip::-webkit-scrollbar {
-    display: none;
-  }
-
   .gallery-card {
-    flex: 0 0 78vw;
-    aspect-ratio: 0.78;
-    scroll-snap-align: center;
+    width: 100%;
+    aspect-ratio: 0.9;
   }
 
   .gallery-card:nth-child(2n) {
