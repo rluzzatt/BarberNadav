@@ -56,33 +56,6 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll("[data-reveal]").forEach((item) => revealObserver.observe(item));
 
-const cursor = document.querySelector(".cursor-orbit");
-let cursorX = 0;
-let cursorY = 0;
-let orbitX = 0;
-let orbitY = 0;
-
-window.addEventListener("pointermove", (event) => {
-  cursorX = event.clientX;
-  cursorY = event.clientY;
-  if (cursor) {
-    cursor.style.opacity = "1";
-  }
-});
-
-function animateCursor() {
-  orbitX += (cursorX - orbitX) * 0.12;
-  orbitY += (cursorY - orbitY) * 0.12;
-  if (cursor) {
-    cursor.style.left = `${orbitX}px`;
-    cursor.style.top = `${orbitY}px`;
-    cursor.style.transform = "translate(-50%, -50%) scale(1)";
-  }
-  requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
-
 const heroMedia = document.querySelector(".hero__media");
 window.addEventListener("scroll", () => {
   const progress = Math.min(window.scrollY / 900, 1);
