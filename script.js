@@ -8,10 +8,15 @@ if ("scrollRestoration" in history) {
 function focusTopOnPageLoad() {
   if (window.location.hash === "#booking") {
     history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+    window.setTimeout(() => window.scrollTo(0, 0), 0);
+    return;
   }
 
-  window.scrollTo(0, 0);
-  window.setTimeout(() => window.scrollTo(0, 0), 0);
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+    window.setTimeout(() => window.scrollTo(0, 0), 0);
+  }
 }
 
 window.addEventListener("pageshow", focusTopOnPageLoad);
